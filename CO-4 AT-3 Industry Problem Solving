@@ -1,5 +1,77 @@
-import java.util.Scanner;
+1. Hospital Patient Billing System
+Develop a Java program for a hospital billing system using Class and Objects.
+Data Members:
+• Patient ID
+• Patient Name
+• Room Type (General/Special)
+• Number of Days Admitted
+• Treatment Charges
+Methods:
+1. Read patient details.
+2. Calculate room charges based on room type.
+3. Calculate the total hospital bill.
+4. Display patient billing details.
+Note: General Room = ₹1,500/day, Special Room = ₹3,000/day.
+2. Airline Ticket Reservation System
+Develop a Java program for an airline reservation system using Class and Objects.
+Data Members:
+• Passenger ID
+• Passenger Name
+• Flight Number
+• Ticket Fare
+• Number of Tickets
+Methods:
+1. Read passenger details.
+2. Calculate total ticket cost.
+3. Apply a 5% discount if more than 5 tickets are booked.
+4. Display booking and payment details.
+Note: GST = 12% on the final amount.
+3. Vehicle Rental Management System
+Develop a Java program for a vehicle rental company using Class and Objects.
+Data Members:
+• Customer ID
+• Customer Name
+• Vehicle Type (Car/Bike)
+• Number of Rental Days
+Methods:
+1. Read customer details.
+2. Calculate rental charges.
+3. Add a late return penalty if applicable.
+4. Display the final rental bill.
+Note: Car = ₹2,000/day, Bike = ₹500/day.
+4. Manufacturing Production Monitoring System
+Develop a Java program to monitor daily production in a manufacturing company
+using Class and Objects.
 
+Data Members:
+• Product ID
+• Product Name
+• Target Quantity
+• Produced Quantity
+Methods:
+1. Read product details.
+2. Compare actual production with the target.
+3. Calculate production efficiency percentage.
+4. Display production status (Achieved/Not Achieved).
+Note: Efficiency = (Produced Quantity / Target Quantity) × 100.
+5. Online Course Enrollment System
+Develop a Java program for an online learning platform using Class and Objects.
+Data Members:
+• Student ID
+• Student Name
+• Course Name
+• Course Fee
+Methods:
+1. Read student and course details.
+2. Calculate the payable amount.
+3. Provide a 15% scholarship discount if the fee exceeds ₹20,000.
+4. Display enrollment and payment details.
+Note: Registration fee = ₹500.
+
+                         //ANSWERS//
+
+
+import java.util.Scanner;
 class Patient {
     // Data Members
     private String patientID;
