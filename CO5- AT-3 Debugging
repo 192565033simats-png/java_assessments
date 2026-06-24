@@ -1,0 +1,124 @@
+============================================================================================
+Student #25 | DHANUSHYA R B | 192565033HC
+============================================================================================
+[1] QID: 5
+Question : The given program uses a loop to print numbers from 0 to 4, but it runs infinitel
+y. Identify the cause and fix the loop.
+public class Q4_Loop {
+public static void main(String[] args) {
+int i = 0;
+while(i < 5){
+System.out.println(i);
+
+Submitted Answers Report
+i++;
+}
+}
+}
+
+Program : import java.io.*;
+import java.util.*;
+class Q4_loop
+{
+public static void main(String args[])
+{
+int i=0;
+while(i
+Input : (no input)
+Output : 0
+1
+2
+3
+4
+
+First Save: 2026-06-23 13:47:02
+Last Save : 2026-06-23 13:53:25
+----------------------------------------------------------------------------------------
+[2] QID: 3
+Question : A program attempts to print the length of a string but results in a runtime excep
+tion. Analyze the issue and modify the code to handle it properly.
+public class Q2_NullPointer {
+public static void main(String[] args) {
+String str = null;
+if(str != null)
+System.out.println(str.length());
+else
+System.out.println("String is null");
+}
+}
+
+Program : import java.io.*;
+import java.util.*;
+class Q2_Nullpointer
+{
+public static void main(String args[])
+{
+String str="null";
+if(str!=null)
+System.out.print(str.length());
+else
+System.out.print("String is null");
+}
+}
+Input : (no input)
+Output : 4
+First Save: 2026-06-23 13:46:35
+Last Save : 2026-06-23 14:05:43
+
+Submitted Answers Report
+----------------------------------------------------------------------------------------
+[3] QID: 19
+Question : A string trimming operation does not produce the expected output. Identify the is
+sue and fix it.
+public class Q19_Trim {
+public static void main(String[] args) {
+String str = " Java ";
+str = str.trim();
+System.out.println(str);
+}
+}
+
+Program : import java.io.*;
+import java.util.*;
+class Q19_Trim
+{
+public static void main(String args[])
+{
+String str=" Java ";
+String str2=str.trim( );
+System.out.print(str2);
+}
+}
+Input : (no input)
+Output : Java
+First Save: 2026-06-23 13:31:05
+Last Save : 2026-06-23 14:05:40
+----------------------------------------------------------------------------------------
+[4] QID: 11
+Question : A string concatenation operation does not update the original string. Identify th
+e issue related to string immutability and fix it.
+public class Q11_StringConcat {
+public static void main(String[] args) {
+String str = "Java";
+str = str.concat(" Programming");
+System.out.println(str);
+}
+}
+
+Program : import java.io.*;
+import java.util.*;
+class Q11_StringConcat
+{
+public static void main(String args[])
+{
+String str1="Java ";
+String str2=str1.concat("Programming");
+System.out.print(str2);
+}
+}
+Input : (no input)
+Output : Java Programming
+
+Submitted Answers Report
+First Save: 2026-06-23 13:27:16
+Last Save : 2026-06-23 14:05:37
