@@ -1,0 +1,467 @@
+import java.util.Scanner;
+
+class Book {
+    private String bookID;
+    private String bookTitle;
+    private String authorName;
+    private int copiesAvailable;
+
+    // Constructor with initial copies assumed to be 20
+    public Book() {
+        this.copiesAvailable = 20;
+    }
+
+    // 1. Read book details
+    public void readBookDetails() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Book ID: ");
+        bookID = sc.nextLine();
+        System.out.print("Enter Book Title: ");
+        bookTitle = sc.nextLine();
+        System.out.print("Enter Author Name: ");
+        authorName = sc.nextLine();
+    }
+
+    // 2. Issue a book
+    public void issueBook() {
+        if (copiesAvailable > 0) {
+            copiesAvailable--;
+            System.out.println("\n--- Book Issued Successfully! ---");
+        } else {
+            System.out.println("\n--- Sorry, no copies available to issue. ---");
+        }
+    }
+
+    // 3. Return a book
+    public void returnBook() {
+        copiesAvailable++;
+        System.out.println("\n--- Book Returned Successfully! ---");
+    }
+
+    // 4. Display updated book details
+    public void displayBookDetails() {
+        System.out.println("\n====== Book Details ======");
+        System.out.println("Book ID: " + bookID);
+        System.out.println("Title: " + bookTitle);
+        System.out.println("Author: " + authorName);
+        System.out.println("Copies Available: " + copiesAvailable);
+        System.out.println("==========================");
+    }
+}
+
+public class LibraryManagement {
+    public static void main(String[] args) {
+        Book book = new Book();
+        
+        System.out.println("--- Reading Book Details ---");
+        book.readBookDetails();
+        
+        book.displayBookDetails();
+        
+        System.out.println("\nIssuing a book...");
+        book.issueBook();
+        book.displayBookDetails();
+        
+        System.out.println("\nReturning a book...");
+        book.returnBook();
+        book.displayBookDetails();
+    }
+}
+--- Reading Book Details ---
+Enter Book ID: B101
+Enter Book Title: Java Programming
+Enter Author Name: E. Balagurusamy
+
+====== Book Details ======
+Book ID: B101
+Title: Java Programming
+Author: E. Balagurusamy
+Copies Available: 20
+==========================
+
+Issuing a book...
+
+--- Book Issued Successfully! ---
+
+====== Book Details ======
+Book ID: B101
+Title: Java Programming
+Author: E. Balagurusamy
+Copies Available: 19
+==========================
+
+Returning a book...
+
+--- Book Returned Successfully! ---
+
+====== Book Details ======
+Book ID: B101
+Title: Java Programming
+Author: E. Balagurusamy
+Copies Available: 20
+==========================
+
+import java.util.Scanner;
+
+class Employee {
+    private String employeeID;
+    private String employeeName;
+    private String department;
+    private double basicSalary;
+
+    // Constructor with initial basic salary assumed to be 25,000
+    public Employee() {
+        this.basicSalary = 25000.0;
+    }
+
+    // 1. Read employee details
+    public void readEmployeeDetails() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Employee ID: ");
+        employeeID = sc.nextLine();
+        System.out.print("Enter Employee Name: ");
+        employeeName = sc.nextLine();
+        System.out.print("Enter Department: ");
+        department = sc.nextLine();
+    }
+
+    // 2. Calculate HRA (20% of Basic Salary)
+    public double calculateHRA() {
+        return 0.20 * basicSalary;
+    }
+
+    // 3. Calculate DA (10% of Basic Salary)
+    public double calculateDA() {
+        return 0.10 * basicSalary;
+    }
+
+    // 4. Display gross salary
+    public void displayGrossSalary() {
+        double hra = calculateHRA();
+        double da = calculateDA();
+        double grossSalary = basicSalary + hra + da;
+
+        System.out.println("\n====== Salary Statement ======");
+        System.out.println("Employee ID   : " + employeeID);
+        System.out.println("Employee Name : " + employeeName);
+        System.out.println("Department    : " + department);
+        System.out.println("Basic Salary  : INR " + basicSalary);
+        System.out.println("HRA (20%)     : INR " + hra);
+        System.out.println("DA (10%)      : INR " + da);
+        System.out.println("------------------------------");
+        System.out.println("Gross Salary  : INR " + grossSalary);
+        System.out.println("==============================");
+    }
+}
+
+public class EmployeeSalaryManagement {
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+        System.out.println("--- Reading Employee Details ---");
+        emp.readEmployeeDetails();
+        emp.displayGrossSalary();
+    }
+}
+
+--- Reading Employee Details ---
+Enter Employee ID: EMP2026
+Enter Employee Name: John Doe
+Enter Department: IT Architecture
+
+====== Salary Statement ======
+Employee ID   : EMP2026
+Employee Name : John Doe
+Department    : IT Architecture
+Basic Salary  : INR 25000.0
+HRA (20%)     : INR 5000.0
+DA (10%)      : INR 2500.0
+------------------------------
+Gross Salary  : INR 32500.0
+==============================
+
+import java.util.Scanner;
+
+class Student {
+    private String studentID;
+    private String studentName;
+    private String course;
+    private double feeBalance;
+
+    // Constructor with initial Total Course Fee assumed to be 50,000
+    public Student() {
+        this.feeBalance = 50000.0;
+    }
+
+    // 1. Read student details
+    public void readStudentDetails() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Student ID: ");
+        studentID = sc.nextLine();
+        System.out.print("Enter Student Name: ");
+        studentName = sc.nextLine();
+        System.out.print("Enter Course: ");
+        course = sc.nextLine();
+    }
+
+    // 2. Pay fee amount
+    public void payFee(double amount) {
+        if (amount <= 0) {
+            System.out.println("Invalid payment amount.");
+        } else if (amount > feeBalance) {
+            System.out.println("Paying excess amount. Remaining balance is only: INR " + feeBalance);
+        } else {
+            feeBalance -= amount;
+            System.out.println("\n--- Payment of INR " + amount + " Successful! ---");
+        }
+    }
+
+    // 3. Check remaining fee balance
+    public void checkFeeBalance() {
+        System.out.println("Current Fee Balance: INR " + feeBalance);
+    }
+
+    // 4. Display student details
+    public void displayStudentDetails() {
+        System.out.println("\n====== Student Details ======");
+        System.out.println("Student ID   : " + studentID);
+        System.out.println("Student Name : " + studentName);
+        System.out.println("Course       : " + course);
+        System.out.println("Fee Balance  : INR " + feeBalance);
+        System.out.println("=============================");
+    }
+}
+
+public class StudentFeeManagement {
+    public static void main(String[] args) {
+        Student student = new Student();
+        
+        System.out.println("--- Reading Student Details ---");
+        student.readStudentDetails();
+        student.displayStudentDetails();
+        
+        System.out.println("\nMaking a payment of INR 15,000...");
+        student.payFee(15000);
+        
+        System.out.println("\nChecking remaining balance directly:");
+        student.checkFeeBalance();
+        
+        student.displayStudentDetails();
+    }
+}
+
+--- Reading Student Details ---
+Enter Student ID: STU404
+Enter Student Name: Alice Smith
+Enter Course: Computer Science
+
+====== Student Details ======
+Student ID   : STU404
+Student Name : Alice Smith
+Course       : Computer Science
+Fee Balance  : INR 50000.0
+=============================
+
+Making a payment of INR 15,000...
+
+--- Payment of INR 15000.0 Successful! ---
+
+Checking remaining balance directly:
+Current Fee Balance: INR 35000.0
+
+====== Student Details ======
+Student ID   : STU404
+Student Name : Alice Smith
+Course       : Computer Science
+Fee Balance  : INR 35000.0
+=============================
+
+import java.util.Scanner;
+
+class Consumer {
+    private String consumerNumber;
+    private String consumerName;
+    private String typeOfConnection;
+    private double unitsConsumed;
+
+    // 1. Read consumer details
+    public void readConsumerDetails() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Consumer Number: ");
+        consumerNumber = sc.nextLine();
+        System.out.print("Enter Consumer Name: ");
+        consumerName = sc.nextLine();
+        
+        // Loop until valid input is received
+        while (true) {
+            System.out.print("Enter Type of Connection (Domestic/Commercial): ");
+            typeOfConnection = sc.nextLine();
+            if (validateConnectionType()) {
+                break;
+            } else {
+                System.out.println("Invalid Connection Type! Please try again.");
+            }
+        }
+        
+        System.out.print("Enter Units Consumed: ");
+        unitsConsumed = sc.nextDouble();
+    }
+
+    // 4. Validate connection type
+    public boolean validateConnectionType() {
+        return typeOfConnection.equalsIgnoreCase("Domestic") || typeOfConnection.equalsIgnoreCase("Commercial");
+    }
+
+    // 2. Calculate electricity bill
+    public double calculateBill() {
+        if (typeOfConnection.equalsIgnoreCase("Domestic")) {
+            return unitsConsumed * 5;
+        } else if (typeOfConnection.equalsIgnoreCase("Commercial")) {
+            return unitsConsumed * 8;
+        }
+        return 0;
+    }
+
+    // 3. Display bill amount
+    public void displayBill() {
+        double billAmount = calculateBill();
+        System.out.println("\n====== Electricity Bill ======");
+        System.out.println("Consumer No   : " + consumerNumber);
+        System.out.println("Consumer Name : " + consumerName);
+        System.out.println("Connection    : " + typeOfConnection);
+        System.out.println("Units Consumed: " + unitsConsumed);
+        System.out.println("------------------------------");
+        System.out.println("Total Bill    : INR " + billAmount);
+        System.out.println("==============================");
+    }
+}
+
+public class ElectricityBillManagement {
+    public static void main(String[] args) {
+        Consumer consumer = new Consumer();
+        System.out.println("--- Reading Consumer Details ---");
+        consumer.readConsumerDetails();
+        consumer.displayBill();
+    }
+}
+
+--- Reading Consumer Details ---
+Enter Consumer Number: CONS789
+Enter Consumer Name: Apex Industries
+Enter Type of Connection (Domestic/Commercial): Commercial
+Enter Units Consumed: 450
+
+====== Electricity Bill ======
+Consumer No   : CONS789
+Consumer Name : Apex Industries
+Connection    : Commercial
+Units Consumed: 450.0
+------------------------------
+Total Bill    : INR 3600.0
+==============================
+
+import java.util.Scanner;
+
+class MobileSubscriber {
+    private String mobileNumber;
+    private String subscriberName;
+    private String serviceProvider;
+    private double accountBalance;
+
+    // Constructor with initial balance assumed to be 500
+    public MobileSubscriber() {
+        this.accountBalance = 500.0;
+    }
+
+    // 1. Read subscriber details
+    public void readSubscriberDetails() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Mobile Number: ");
+        mobileNumber = sc.nextLine();
+        System.out.print("Enter Subscriber Name: ");
+        subscriberName = sc.nextLine();
+        System.out.print("Enter Service Provider: ");
+        serviceProvider = sc.nextLine();
+    }
+
+    // 2. Recharge account balance
+    public void recharge(double amount) {
+        if (amount > 0) {
+            accountBalance += amount;
+            System.out.println("\n--- Recharge of INR " + amount + " Successful! ---");
+        } else {
+            System.out.println("Invalid recharge amount.");
+        }
+    }
+
+    // 3. Deduct balance for a call/data usage
+    public void deductBalance(double usageCost) {
+        if (usageCost <= accountBalance) {
+            accountBalance -= usageCost;
+            System.out.println("\n--- Cost of INR " + usageCost + " deducted for usage. ---");
+        } else {
+            System.out.println("\n--- Insufficient balance for this action! Please recharge. ---");
+        }
+    }
+
+    // 4. Display updated balance
+    public void displayBalance() {
+        System.out.println("\n====== Subscriber Balance Info ======");
+        System.out.println("Subscriber Name : " + subscriberName);
+        System.out.println("Mobile Number   : " + mobileNumber);
+        System.out.println("Provider        : " + serviceProvider);
+        System.out.println("Current Balance : INR " + accountBalance);
+        System.out.println("=====================================");
+    }
+}
+
+public class MobileRechargeSystem {
+    public static void main(String[] args) {
+        MobileSubscriber subscriber = new MobileSubscriber();
+        
+        System.out.println("--- Reading Subscriber Details ---");
+        subscriber.readSubscriberDetails();
+        subscriber.displayBalance();
+        
+        System.out.println("\nSimulating usage cost of INR 45...");
+        subscriber.deductBalance(45);
+        subscriber.displayBalance();
+        
+        System.out.println("\nRecharging with INR 200...");
+        subscriber.recharge(200);
+        subscriber.displayBalance();
+    }
+}
+
+--- Reading Subscriber Details ---
+Enter Mobile Number: 9876543210
+Enter Subscriber Name: Bob Vance
+Enter Service Provider: Jio
+
+====== Subscriber Balance Info ======
+Subscriber Name : Bob Vance
+Mobile Number   : 9876543210
+Provider        : Jio
+Current Balance : INR 500.0
+=====================================
+
+Simulating usage cost of INR 45...
+
+--- Cost of INR 45.0 deducted for usage. ---
+
+====== Subscriber Balance Info ======
+Subscriber Name : Bob Vance
+Mobile Number   : 9876543210
+Provider        : Jio
+Current Balance : INR 455.0
+=====================================
+
+Recharging with INR 200...
+
+--- Recharge of INR 200.0 Successful! ---
+
+====== Subscriber Balance Info ======
+Subscriber Name : Bob Vance
+Mobile Number   : 9876543210
+Provider        : Jio
+Current Balance : INR 655.0
+=====================================
