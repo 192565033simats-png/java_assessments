@@ -1,5 +1,76 @@
-import java.util.Scanner;
+1. Library Management System
+Design a Java class to represent a library book.
+Data Members:
+• Book ID
+• Book Title
+• Author Name
+• Number of Copies Available
+Methods:
+1. Read book details.
+2. Issue a book (decrease available copies by 1).
+3. Return a book (increase available copies by 1).
+4. Display updated book details.
+Assume: Initial copies = 20.
 
+2. Employee Salary Management
+Design a Java class to represent an employee.
+Data Members:
+• Employee ID
+• Employee Name
+• Department
+• Basic Salary
+Methods:
+1. Read employee details.
+2. Calculate HRA (20% of Basic Salary).
+3. Calculate DA (10% of Basic Salary).
+4. Display gross salary.
+Assume: Basic Salary = ₹25,000.
+
+3. Student Fee Management System
+Design a Java class to represent a student.
+Data Members:
+• Student ID
+• Student Name
+• Course
+• Fee Balance
+Methods:
+1. Read student details.
+2. Pay fee amount.
+3. Check remaining fee balance.
+4. Display student details.
+Assume: Total Course Fee = ₹50,000.
+
+4. Electricity Bill Management
+Design a Java class to represent a consumer.
+Data Members:
+• Consumer Number
+• Consumer Name
+• Type of Connection (Domestic/Commercial)
+• Units Consumed
+Methods:
+1. Read consumer details.
+2. Calculate electricity bill.
+3. Display bill amount.
+4. Validate connection type.
+Assume:
+• Domestic: ₹5 per unit
+• Commercial: ₹8 per unit
+
+5. Mobile Recharge System
+Design a Java class to represent a mobile subscriber.
+Data Members:
+• Mobile Number
+• Subscriber Name
+• Service Provider
+• Account Balance
+Methods:
+1. Read subscriber details.
+2. Recharge account balance.
+3. Deduct balance for a call/data usage.
+4. Display updated balance.
+Assume: Initial balance = ₹500.
+
+import java.util.Scanner;
 class Book {
     private String bookID;
     private String bookTitle;
