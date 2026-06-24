@@ -1,0 +1,328 @@
+import java.util.Scanner;
+
+class Patient {
+    // Data Members
+    private String patientID;
+    private String patientName;
+    private String roomType;
+    private int daysAdmitted;
+    private double treatmentCharges;
+    private double roomCharges;
+    private double totalBill;
+
+    // Method 1: Read patient details
+    public void readPatientDetails() {
+        Scanner sc = new Scanner(System.class);
+        System.out.print("Enter Patient ID: ");
+        patientID = sc.nextLine();
+        System.out.print("Enter Patient Name: ");
+        patientName = sc.nextLine();
+        System.out.print("Enter Room Type (General/Special): ");
+        roomType = sc.nextLine();
+        System.out.print("Enter Number of Days Admitted: ");
+        daysAdmitted = sc.nextInt();
+        System.out.print("Enter Treatment Charges (₹): ");
+        treatmentCharges = sc.nextDouble();
+    }
+
+    // Method 2: Calculate room charges based on room type
+    public void calculateRoomCharges() {
+        if (roomType.equalsIgnoreCase("Special")) {
+            roomCharges = daysAdmitted * 3000;
+        } else {
+            roomCharges = daysAdmitted * 1500; // Defaulting to General if not special
+        }
+    }
+
+    // Method 3: Calculate the total hospital bill
+    public void calculateTotalBill() {
+        totalBill = roomCharges + treatmentCharges;
+    }
+
+    // Method 4: Display patient billing details
+    public void displayBillingDetails() {
+        System.out.println("\n--- Patient Billing Details ---");
+        System.out.println("Patient ID: " + patientID);
+        System.out.println("Patient Name: " + patientName);
+        System.out.println("Room Type: " + roomType);
+        System.out.println("Days Admitted: " + daysAdmitted);
+        System.out.println("Room Charges: ₹" + roomCharges);
+        System.out.println("Treatment Charges: ₹" + treatmentCharges);
+        System.out.println("Total Bill Amount: ₹" + totalBill);
+        System.out.println("--------------------------------");
+    }
+}
+
+public class HospitalBillingSystem {
+    public static void main(String[] args) {
+        Patient patient = new Patient();
+        patient.readPatientDetails();
+        patient.calculateRoomCharges();
+        patient.calculateTotalBill();
+        patient.displayBillingDetails();
+    }
+}
+
+Enter Patient ID: P101
+Enter Patient Name: Rahul Sharma
+Enter Room Type (General/Special): Special
+Enter Number of Days Admitted: 4
+Enter Treatment Charges (₹): 15000
+
+--- Patient Billing Details ---
+Patient ID: P101
+Patient Name: Rahul Sharma
+Room Type: Special
+Days Admitted: 4
+Room Charges: ₹12000.0
+Treatment Charges: ₹15000.0
+Total Bill Amount: ₹27000.0
+--------------------------------
+
+import java.util.Scanner;
+
+class AirlineReservation {
+    // Data Members
+    private String passengerID;
+    private String passengerName;
+    private String flightNumber;
+    private double ticketFare;
+    private int numTickets;
+    private double totalCost;
+    private double discount;
+    private double gst;
+    private double finalAmount;
+
+    // Method 1: Read passenger details
+    public void readPassengerDetails() {
+        Scanner sc = new Scanner(System.class);
+        System.out.print("Enter Passenger ID: ");
+        passengerID = sc.nextLine();
+        System.out.print("Enter Passenger Name: ");
+        passengerName = sc.nextLine();
+        System.out.print("Enter Flight Number: ");
+        flightNumber = sc.nextLine();
+        System.out.print("Enter Ticket Fare per Ticket (₹): ");
+        ticketFare = sc.nextDouble();
+        System.out.print("Enter Number of Tickets: ");
+        numTickets = sc.nextInt();
+    }
+
+    // Method 2 & 3: Calculate total ticket cost and apply discount
+    public void calculateTotalCost() {
+        double initialCost = ticketFare * numTickets;
+        
+        // 5% discount if more than 5 tickets are booked
+        if (numTickets > 5) {
+            discount = initialCost * 0.05;
+        } else {
+            discount = 0;
+        }
+        
+        totalCost = initialCost - discount;
+        gst = totalCost * 0.12; // 12% GST
+        finalAmount = totalCost + gst;
+    }
+
+    // Method 4: Display booking and payment details
+    public void displayBookingDetails() {
+        System.out.println("\n--- Booking & Payment Details ---");
+        System.out.println("Passenger ID: " + passengerID);
+        System.out.println("Passenger Name: " + passengerName);
+        System.out.println("Flight Number: " + flightNumber);
+        System.out.println("Number of Tickets: " + numTickets);
+        System.out.println("Base Fare Subtotal: ₹" + (ticketFare * numTickets));
+        System.out.println("Discount Applied (5%): ₹" + discount);
+        System.out.println("GST (12%): ₹" + gst);
+        System.out.println("Final Payable Amount: ₹" + finalAmount);
+        System.out.println("---------------------------------");
+    }
+}
+
+public class AirlineSystem {
+    public static void main(String[] args) {
+        AirlineReservation booking = new AirlineReservation();
+        booking.readPassengerDetails();
+        booking.calculateTotalCost();
+        booking.displayBookingDetails();
+    }
+}
+
+Enter Passenger ID: AX889
+Enter Passenger Name: Priya Patel
+Enter Flight Number: AI-402
+Enter Ticket Fare per Ticket (₹): 5000
+Enter Number of Tickets: 6
+
+--- Booking & Payment Details ---
+Passenger ID: AX889
+Passenger Name: Priya Patel
+Flight Number: AI-402
+Number of Tickets: 6
+Base Fare Subtotal: ₹30000.0
+Discount Applied (5%): ₹1500.0
+GST (12%): ₹3420.0
+Final Payable Amount: ₹31920.0
+---------------------------------
+
+Enter Customer ID: C552
+Enter Customer Name: Amit Verma
+Enter Vehicle Type (Car/Bike): Car
+Enter Number of Rental Days: 3
+Is the return late? (yes/no): yes
+Enter extra days delayed: 1
+
+--- Final Rental Bill ---
+Customer ID: C552
+Customer Name: Amit Verma
+Vehicle Type: Car
+Rental Period: 3 Days
+Base Rental Charges: ₹6000.0
+Late Penalty Charges: ₹3000.0
+Final Bill Amount: ₹9000.0
+-------------------------
+
+import java.util.Scanner;
+
+class ProductionMonitor {
+    // Data Members
+    private String productID;
+    private String productName;
+    private double targetQuantity;
+    private double producedQuantity;
+    private double efficiency;
+
+    // Method 1: Read product details
+    public void readProductDetails() {
+        Scanner sc = new Scanner(System.class);
+        System.out.print("Enter Product ID: ");
+        productID = sc.nextLine();
+        System.out.print("Enter Product Name: ");
+        productName = sc.nextLine();
+        System.out.print("Enter Target Quantity: ");
+        targetQuantity = sc.nextDouble();
+        System.out.print("Enter Produced Quantity: ");
+        producedQuantity = sc.nextDouble();
+    }
+
+    // Method 2 & 3: Compare actual production and calculate efficiency
+    public void calculateEfficiency() {
+        if (targetQuantity > 0) {
+            efficiency = (producedQuantity / targetQuantity) * 100;
+        } else {
+            efficiency = 0;
+        }
+    }
+
+    // Method 4: Display production status
+    public void displayProductionStatus() {
+        String status = (producedQuantity >= targetQuantity) ? "Achieved" : "Not Achieved";
+        
+        System.out.println("\n--- Production Monitoring Status ---");
+        System.out.println("Product ID: " + productID);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Target Quantity: " + targetQuantity);
+        System.out.println("Produced Quantity: " + producedQuantity);
+        System.out.printf("Production Efficiency: %.2f%%\n", efficiency);
+        System.out.println("Production Status: " + status);
+        System.out.println("------------------------------------");
+    }
+}
+
+public class ManufacturingSystem {
+    public static void main(String[] args) {
+        ProductionMonitor pm = new ProductionMonitor();
+        pm.readProductDetails();
+        pm.calculateEfficiency();
+        pm.displayProductionStatus();
+    }
+}
+
+Enter Product ID: M404
+Enter Product Name: Steel Rods
+Enter Target Quantity: 5000
+Enter Produced Quantity: 4800
+
+--- Production Monitoring Status ---
+Product ID: M404
+Product Name: Steel Rods
+Target Quantity: 5000.0
+Produced Quantity: 4800.0
+Production Efficiency: 96.00%
+Production Status: Not Achieved
+------------------------------------
+
+import java.util.Scanner;
+
+class CourseEnrollment {
+    // Data Members
+    private String studentID;
+    private String studentName;
+    private String courseName;
+    private double courseFee;
+    private final double REGISTRATION_FEE = 500;
+    private double discount;
+    private double payableAmount;
+
+    // Method 1: Read student and course details
+    public void readEnrollmentDetails() {
+        Scanner sc = new Scanner(System.class);
+        System.out.print("Enter Student ID: ");
+        studentID = sc.nextLine();
+        System.out.print("Enter Student Name: ");
+        studentName = sc.nextLine();
+        System.out.print("Enter Course Name: ");
+        courseName = sc.nextLine();
+        System.out.print("Enter Course Fee (₹): ");
+        courseFee = sc.nextDouble();
+    }
+
+    // Method 2 & 3: Calculate amount and provide 15% scholarship if fee > ₹20,000
+    public void calculatePayableAmount() {
+        if (courseFee > 20000) {
+            discount = courseFee * 0.15;
+        } else {
+            discount = 0;
+        }
+        
+        payableAmount = (courseFee - discount) + REGISTRATION_FEE;
+    }
+
+    // Method 4: Display enrollment and payment details
+    public void displayEnrollmentDetails() {
+        System.out.println("\n--- Enrollment & Payment Details ---");
+        System.out.println("Student ID: " + studentID);
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Course Appended: " + courseName);
+        System.out.println("Base Course Fee: ₹" + courseFee);
+        System.out.println("Scholarship Discount (15%): ₹" + discount);
+        System.out.println("Registration Fee: ₹" + REGISTRATION_FEE);
+        System.out.println("Total Payable Amount: ₹" + payableAmount);
+        System.out.println("------------------------------------");
+    }
+}
+
+public class CourseEnrollmentSystem {
+    public static void main(String[] args) {
+        CourseEnrollment enrollment = new CourseEnrollment();
+        enrollment.readEnrollmentDetails();
+        enrollment.calculatePayableAmount();
+        enrollment.displayEnrollmentDetails();
+    }
+}
+
+Enter Student ID: S2021
+Enter Student Name: Anjali Rao
+Enter Course Name: Full Stack Java Development
+Enter Course Fee (₹): 25000
+
+--- Enrollment & Payment Details ---
+Student ID: S2021
+Student Name: Anjali Rao
+Course Appended: Full Stack Java Development
+Base Course Fee: ₹25000.0
+Scholarship Discount (15%): ₹3750.0
+Registration Fee: ₹500.0
+Total Payable Amount: ₹21750.0
+------------------------------------
+
